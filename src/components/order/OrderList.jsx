@@ -5,14 +5,19 @@ function OrderList({ orderItems }) {
     <div className="bg-light border-top fixed-bottom p-3">
       <div className="container">
         {/* Title */}
-        <h5 className="mb-3">Your Order</h5>
+        <h5 className="text-muted mb-2">Your Order</h5>
 
         {/* Order items */}
         <div className="list-group mb-3">
           {orderItems.length === 0 ? (
             <p className="text-muted">Your order is empty.</p>
           ) : (
-            orderItems.map((item) => <OrderItemRow key={item.id} {...item} />)
+            <>
+              <h6 className="text-muted">Order Details:</h6>
+              {orderItems.map((item) => (
+                <OrderItemRow key={item.id} {...item} />
+              ))}
+            </>
           )}
         </div>
 
