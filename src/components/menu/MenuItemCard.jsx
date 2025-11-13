@@ -1,4 +1,11 @@
-function MenuItemCard({ imageUrl, title, description, price }) {
+function MenuItemCard({
+  id,
+  title,
+  description,
+  price,
+  imageUrl,
+  onAddToOrder,
+}) {
   return (
     <div className="card h-100 shadow-sm text-center">
       {/* Image */}
@@ -18,11 +25,16 @@ function MenuItemCard({ imageUrl, title, description, price }) {
         <div>
           <h5 className="card-title">{title}</h5>
           <p className="card-text text-muted small">{description}</p>
-          <p className="fw-bold text-dark">{price}</p>
+          <p className="fw-bold text-dark">{price} SEK</p>
         </div>
 
         {/* Button: Add to Order */}
-        <button className="btn btn-secondary mt-2 w-100">Add to Order</button>
+        <button
+          className="btn btn-secondary mt-2 w-100"
+          onClick={() => onAddToOrder({ id, title, price })}
+        >
+          Add to Order
+        </button>
       </div>
     </div>
   );
