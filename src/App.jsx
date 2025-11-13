@@ -1,13 +1,7 @@
-import { useState } from "react";
+import Layout from "./layout/Layout.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div className="div">Fast Food Menu!</div>
-    </>
-  );
+  return <Layout />;
 }
 
 export default App;
