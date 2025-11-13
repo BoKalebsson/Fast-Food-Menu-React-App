@@ -7,11 +7,11 @@ function Layout() {
     <div className="container-fluid p-0">
       <Header />
 
-      <main className="container my-4">
+      <main className="container my-4 pb-5">
         <MenuList />
       </main>
 
-      <footer className="container-fluid border-top py-3 bg-light">
+      <footer className="bg-light border-top fixed-bottom py-3 shadow-sm">
         <OrderList />
       </footer>
     </div>
