@@ -1,4 +1,7 @@
 function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
+  console.log("quantity:", quantity, "price:", price);
+  const totalRowPrice = quantity * price;
+
   return (
     <div className="list-group-item">
       <div className="row align-items-center text-center">
@@ -23,7 +26,12 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
         </div>
 
         {/* Right: Price */}
-        <div className="col-4 fw-bold text-end">{price} SEK</div>
+        <div className="col-4 text-end">
+          <span className="text-muted">
+            {quantity} x {price}
+          </span>
+          <span className="fw-bold ms-2">= {totalRowPrice} SEK</span>
+        </div>
       </div>
     </div>
   );

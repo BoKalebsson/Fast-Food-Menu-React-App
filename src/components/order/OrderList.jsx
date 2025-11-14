@@ -1,6 +1,10 @@
 import OrderItemRow from "./OrderItemRow";
 
 function OrderList({ orderItems, onIncrease, onDecrease }) {
+  const totalOrderPrice = orderItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   return (
     <div className="bg-light border-top fixed-bottom p-3">
       <div className="container">
@@ -30,7 +34,7 @@ function OrderList({ orderItems, onIncrease, onDecrease }) {
         {orderItems.length > 0 && (
           <div className="d-flex justify-content-end pt-2">
             <strong className="me-2">Total:</strong>
-            <span>— SEK</span>
+            <span>{totalOrderPrice} SEK</span>
           </div>
         )}
       </div>
