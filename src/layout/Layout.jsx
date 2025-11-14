@@ -29,6 +29,14 @@ function Layout() {
     }
   }
 
+  // Increase quantity for a product:
+  function handleIncrease(id) {
+    const updatedItems = orderItems.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setOrderItems(updatedItems);
+  }
+
   return (
     <div className="container-fluid p-0">
       <Header />
@@ -38,7 +46,7 @@ function Layout() {
       </main>
 
       <footer className="bg-light border-top fixed-bottom py-3 shadow-sm">
-        <OrderList orderItems={orderItems} />
+        <OrderList orderItems={orderItems} onIncrease={handleIncrease} />
       </footer>
     </div>
   );

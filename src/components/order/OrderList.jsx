@@ -1,6 +1,6 @@
 import OrderItemRow from "./OrderItemRow";
 
-function OrderList({ orderItems }) {
+function OrderList({ orderItems, onIncrease }) {
   return (
     <div className="bg-light border-top fixed-bottom p-3">
       <div className="container">
@@ -15,7 +15,7 @@ function OrderList({ orderItems }) {
             <>
               <h6 className="text-muted">Order Details:</h6>
               {orderItems.map((item) => (
-                <OrderItemRow key={item.id} {...item} />
+                <OrderItemRow key={item.id} {...item} onIncrease={onIncrease} />
               ))}
             </>
           )}
