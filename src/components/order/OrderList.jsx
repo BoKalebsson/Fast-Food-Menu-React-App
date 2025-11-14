@@ -7,10 +7,7 @@ function OrderList({ orderItems, onIncrease, onDecrease }) {
   );
 
   return (
-    <div
-      className="orderlist-region p-3 position-fixed bottom-0 start-0 end-0 shadow"
-      style={{ zIndex: 1030 }}
-    >
+    <div className="orderlist-region p-3" >
       <div className="container" style={{ maxWidth: "500px" }}>
         <h5 className="mb-2">Your Order</h5>
 

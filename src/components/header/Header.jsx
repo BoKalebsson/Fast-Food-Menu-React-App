@@ -25,7 +25,9 @@ function Header({ theme, onToggleTheme }) {
         </button>
 
         {/* Title */}
-        <h1 className="h4 mb-0 flex-grow-1 text-center">Fast Food Menu</h1>
+        <h1 className="h4 mb-0 flex-grow-1 text-center position-absolute start-50 translate-middle-x">
+          Fast Food Menu
+        </h1>
       </div>
     </header>
   );

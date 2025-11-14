@@ -57,28 +57,19 @@ function Layout({ theme, onToggleTheme }) {
   }
 
   return (
-    <div className="container-fluid p-0">
-      <header className="fixed-top bg-body border-bottom shadow-sm">
+    <div className="d-flex flex-column vh-100">
+      <header className="sticky-top bg-body border-bottom shadow-sm">
         <Header theme={theme} onToggleTheme={onToggleTheme} />
       </header>
 
-      <main
-        className="container"
-        style={{
-          paddingTop: "90px",
-          paddingBottom: "200px",
-        }}
-      >
-        <MenuList onAddToOrder={handleAddToOrder} />
+      <main className="flex-grow-1 overflow-auto">
+        <div className="container py-4">
+          <MenuList onAddToOrder={handleAddToOrder} />
+        </div>
       </main>
 
-      <footer className="fixed-bottom bg-body shadow-sm p-3">
-        <div
-          className="overflow-auto"
-          style={{
-            maxHeight: "35vh",
-          }}
-        >
+      <footer className="bg-body shadow-sm p-3">
+        <div className="overflow-auto" style={{ maxHeight: "35vh" }}>
           <OrderList
             orderItems={orderItems}
             onIncrease={handleIncrease}
