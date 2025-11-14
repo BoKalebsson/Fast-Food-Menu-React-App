@@ -2,15 +2,13 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
   const totalRowPrice = quantity * price;
 
   return (
-    <div className="list-group-item orderitem-row">
+    <div className="list-group-item">
       <div className="row align-items-center text-center">
-        {/* Left: Product name */}
-        <div className="col-4 text-start fw-medium orderitem-title">
-          {title}
-        </div>
+        {/* Title */}
+        <div className="col-4 text-start fw-medium">{title}</div>
 
-        {/* Middle: Quantity controls */}
-        <div className="col-4 d-flex justify-content-center align-items-center orderitem-controls">
+        {/* Controls */}
+        <div className="col-4 d-flex justify-content-center align-items-center">
           <button
             className="btn btn-outline-secondary btn-sm me-2"
             onClick={() => onDecrease(id)}
@@ -18,9 +16,7 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
             <i className="bi bi-dash-lg"></i>
           </button>
 
-          <span className="fw-semibold mx-2 orderitem-quantity">
-            {quantity}
-          </span>
+          <span className="fw-semibold mx-2">{quantity}</span>
 
           <button
             className="btn btn-outline-secondary btn-sm ms-2"
@@ -30,14 +26,12 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
           </button>
         </div>
 
-        {/* Right: Price */}
-        <div className="col-4 text-end orderitem-price">
-          <span className="orderitem-math">
+        {/* Price */}
+        <div className="col-4 text-end">
+          <span>
             {quantity} x {price}
           </span>
-          <span className="fw-bold ms-2 orderitem-total">
-            = {totalRowPrice} SEK
-          </span>
+          <span className="fw-bold ms-2">= {totalRowPrice} SEK</span>
         </div>
       </div>
     </div>

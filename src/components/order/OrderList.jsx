@@ -7,18 +7,19 @@ function OrderList({ orderItems, onIncrease, onDecrease }) {
   );
 
   return (
-    <div className="orderlist-region p-3">
-      <div className="container">
-        {/* Title */}
-        <h5 className="order-title mb-2">Your Order</h5>
+    <div
+      className="orderlist-region p-3 position-fixed bottom-0 start-0 end-0 shadow"
+      style={{ background: "var(--surface)", zIndex: 1030 }}
+    >
+      <div className="container" style={{ maxWidth: "500px" }}>
+        <h5 className="mb-2">Your Order</h5>
 
-        {/* Order items */}
         <div className="list-group mb-3">
           {orderItems.length === 0 ? (
-            <p className="order-empty-text">Your order is empty.</p>
+            <p className="text-muted">Your order is empty.</p>
           ) : (
             <>
-              <h6 className="order-details-label">Order Details:</h6>
+              <h6 className="mb-2">Order Details:</h6>
 
               {orderItems.map((item) => (
                 <OrderItemRow
@@ -32,9 +33,8 @@ function OrderList({ orderItems, onIncrease, onDecrease }) {
           )}
         </div>
 
-        {/* Total row */}
         {orderItems.length > 0 && (
-          <div className="d-flex justify-content-end pt-2 order-total-row">
+          <div className="d-flex justify-content-end pt-2">
             <strong className="me-2">Total:</strong>
             <span>{totalOrderPrice} SEK</span>
           </div>

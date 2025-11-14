@@ -7,25 +7,27 @@ function MenuItemCard({
   onAddToOrder,
 }) {
   return (
-    <div className="card h-100 shadow-sm text-center menuitem-card">
+    <div
+      className="card h-100 shadow-sm text-center mx-auto"
+      style={{ maxWidth: "300px" }}
+    >
       {/* Image */}
       <img
         src={imageUrl}
         alt={title}
-        className="card-img-top img-fluid menuitem-image"
+        className="card-img-top img-fluid"
+        style={{ maxHeight: "130px", objectFit: "contain" }}
       />
 
-      {/* Card Body */}
-      <div className="card-body d-flex flex-column justify-content-between">
+      <div className="card-body p-2 d-flex flex-column justify-content-between">
         <div>
-          <h5 className="card-title menuitem-title">{title}</h5>
-          <p className="card-text small menuitem-description">{description}</p>
-          <p className="fw-bold menuitem-price">{price} SEK</p>
+          <h5 className="card-title fs-6 mb-1">{title}</h5>
+          <p className="card-text small mb-1">{description}</p>
+          <p className="fw-bold mb-1">{price} SEK</p>
         </div>
 
-        {/* Button: Add to Order */}
         <button
-          className="btn btn-secondary mt-2 w-100 menuitem-button"
+          className="btn btn-secondary btn-sm w-100 mt-2"
           onClick={() => onAddToOrder({ id, title, price })}
         >
           Add to Order
