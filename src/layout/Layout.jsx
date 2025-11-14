@@ -72,7 +72,7 @@ function Layout({ theme, onToggleTheme }) {
         <MenuList onAddToOrder={handleAddToOrder} />
       </main>
 
-      <footer className="fixed-bottom bg-body border-top shadow-sm p-3">
+      <footer className="fixed-bottom bg-body shadow-sm p-3">
         <div
           className="overflow-auto"
           style={{

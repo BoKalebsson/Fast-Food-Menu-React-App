@@ -73,3 +73,25 @@ body {
   color: var(--btn-text);
   border-color: var(--border);
 }
+
+/* OrderList quantity buttons */
+.qty-btn {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--border) !important;
+}
+
+.qty-btn:hover {
+  background-color: var(--btn-bg-hover) !important;
+}
+
+.qty-btn i {
+  color: var(--btn-text) !important;
+}
+
+/* Makes the order list background follow the theme */
+.theme-surface {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}

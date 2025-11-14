@@ -10,7 +10,7 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
         {/* Controls */}
         <div className="col-4 d-flex justify-content-center align-items-center">
           <button
-            className="btn btn-outline-secondary btn-sm me-2"
+            className="btn btn-outline-secondary btn-sm me-2 qty-btn"
             onClick={() => onDecrease(id)}
           >
             <i className="bi bi-dash-lg"></i>
@@ -19,7 +19,7 @@ function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
           <span className="fw-semibold mx-2">{quantity}</span>
 
           <button
-            className="btn btn-outline-secondary btn-sm ms-2"
+            className="btn btn-outline-secondary btn-sm ms-2 qty-btn"
             onClick={() => onIncrease(id)}
           >
             <i className="bi bi-plus-lg"></i>
