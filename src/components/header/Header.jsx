@@ -1,11 +1,31 @@
-function Header() {
+function Header({ theme, onToggleTheme }) {
   return (
-    <header className="bg-light shadow-sm py-3 mb-3">
+    <header className="py-3 shadow-sm">
       <div className="container d-flex justify-content-between align-items-center">
-        <span className="small text-muted">🌗 Toggle Theme</span>
-        <h1 className="h4 mb-0 text-center flex-grow-1 text-muted mb-2">
-          Fast Food Menu
-        </h1>
+        {/* Theme toggle button */}
+        <button
+          className="btn btn-sm d-flex align-items-center gap-2"
+          onClick={onToggleTheme}
+        >
+          {theme === "light" ? (
+            <>
+              <span role="img" aria-label="moon">
+                🌙
+              </span>
+              <span>Enable Dark Mode</span>
+            </>
+          ) : (
+            <>
+              <span role="img" aria-label="sun">
+                ☀️
+              </span>
+              <span>Enable Light Mode</span>
+            </>
+          )}
+        </button>
+
+        {/* Title */}
+        <h1 className="h4 mb-0 flex-grow-1 text-center">Fast Food Menu</h1>
       </div>
     </header>
   );

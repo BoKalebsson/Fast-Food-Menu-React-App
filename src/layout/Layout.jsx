@@ -3,7 +3,7 @@ import Header from "../components/header/Header.jsx";
 import MenuList from "../components/menu/MenuList.jsx";
 import OrderList from "../components/order/OrderList.jsx";
 
-function Layout() {
+function Layout({ theme, onToggleTheme }) {
   // Create a state for the orders:
   const [orderItems, setOrderItems] = useState([]);
 
@@ -58,18 +58,33 @@ function Layout() {
 
   return (
     <div className="container-fluid p-0">
-      <Header />
+      <header className="fixed-top bg-body border-bottom shadow-sm">
+        <Header theme={theme} onToggleTheme={onToggleTheme} />
+      </header>
 
-      <main className="container my-4 pb-5">
+      <main
+        className="container"
+        style={{
+          paddingTop: "90px",
+          paddingBottom: "200px",
+        }}
+      >
         <MenuList onAddToOrder={handleAddToOrder} />
       </main>
 
-      <footer className="bg-light border-top fixed-bottom py-3 shadow-sm">
-        <OrderList
-          orderItems={orderItems}
-          onIncrease={handleIncrease}
-          onDecrease={handleDecrease}
-        />
+      <footer className="fixed-bottom bg-body border-top shadow-sm p-3">
+        <div
+          className="overflow-auto"
+          style={{
+            maxHeight: "35vh",
+          }}
+        >
+          <OrderList
+            orderItems={orderItems}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+          />
+        </div>
       </footer>
     </div>
   );
