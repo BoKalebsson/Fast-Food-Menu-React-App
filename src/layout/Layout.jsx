@@ -37,6 +37,25 @@ function Layout() {
     setOrderItems(updatedItems);
   }
 
+  // Decrease quantity for a product:
+  function handleDecrease(id) {
+    const existingItem = orderItems.find((item) => item.id === id);
+
+    if (!existingItem) return;
+
+    // If quantity is 1 → remove the product:
+    if (existingItem.quantity === 1) {
+      const filtered = orderItems.filter((item) => item.id !== id);
+      setOrderItems(filtered);
+    } else {
+      // Decrease quantity with 1:
+      const updatedItems = orderItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      setOrderItems(updatedItems);
+    }
+  }
+
   return (
     <div className="container-fluid p-0">
       <Header />
@@ -46,7 +65,11 @@ function Layout() {
       </main>
 
       <footer className="bg-light border-top fixed-bottom py-3 shadow-sm">
-        <OrderList orderItems={orderItems} onIncrease={handleIncrease} />
+        <OrderList
+          orderItems={orderItems}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+        />
       </footer>
     </div>
   );

@@ -1,4 +1,4 @@
-function OrderItemRow({ id, title, price, quantity, onIncrease }) {
+function OrderItemRow({ id, title, price, quantity, onIncrease, onDecrease }) {
   return (
     <div className="list-group-item">
       <div className="row align-items-center text-center">
@@ -7,7 +7,10 @@ function OrderItemRow({ id, title, price, quantity, onIncrease }) {
 
         {/* Middle: Quantity controls */}
         <div className="col-4 d-flex justify-content-center align-items-center">
-          <button className="btn btn-outline-secondary btn-sm me-2">
+          <button
+            className="btn btn-outline-secondary btn-sm me-2"
+            onClick={() => onDecrease(id)}
+          >
             <i className="bi bi-dash-lg"></i>
           </button>
           <span className="fw-semibold mx-2">{quantity}</span>
